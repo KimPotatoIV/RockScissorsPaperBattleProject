@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://c75k1q1ymxqb4"]
+
+[ext_resource type="Script" uid="uid://bcao1wantyvgl" path="res://scenes/rock_scissors_paper/scissors.gd" id="1_b5hqf"]
+[ext_resource type="Texture2D" uid="uid://bisl82vm3hfjv" path="res://scenes/rock_scissors_paper/scissors_rock_paper.png" id="1_s1r2s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf6vs"]
+atlas = ExtResource("1_s1r2s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5owtd"]
+radius = 6.08276
+
+[node name="Scissors" type="Area2D"]
+script = ExtResource("1_b5hqf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_uf6vs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5owtd")
