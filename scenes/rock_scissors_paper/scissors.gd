@@ -8,8 +8,11 @@ preload("res://scenes/rock_scissors_paper/rock.tscn")
 
 const SCREEN_SIZE: Vector2 = Vector2(360.0, 640.0)
 const MOVING_SPEED: float = 100.0
+const COOLDOWN_TIME: float = 0.5
 
 var velocity: Vector2 = Vector2(1.0, 0.0)
+var timer: float = 0.0
+var can_fight: bool = false
 
 ##################################################
 func _ready() -> void:
@@ -22,6 +25,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not GameManager.get_is_starting():
 		return
+	
+	if not can_fight:
+		timer += delta
+		if timer >= COOLDOWN_TIME:
+			can_fight = true
 	
 	global_position += velocity * delta
 	
@@ -37,6 +45,12 @@ func _physics_process(delta: float) -> void:
 
 ##################################################
 func _on_area_entered(area: Area2D) -> void:
+	if not can_fight:
+		return
+	
+	can_fight = false
+	timer = 0.0
+	
 	if area.is_in_group("Paper"):
 		var scissors_instance = SCISSORS_SCENE.instantiate()
 		scissors_instance.global_position = area.global_position

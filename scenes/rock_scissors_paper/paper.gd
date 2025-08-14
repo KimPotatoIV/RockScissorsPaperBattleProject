@@ -8,7 +8,7 @@ preload("res://scenes/rock_scissors_paper/scissors.tscn")
 
 const SCREEN_SIZE: Vector2 = Vector2(360.0, 640.0)
 const MOVING_SPEED: float = 100.0
-const COOLDOWN_TIME: float = 1.0
+const COOLDOWN_TIME: float = 0.5
 
 var velocity: Vector2 = Vector2(1.0, 0.0)
 var timer: float = 0.0

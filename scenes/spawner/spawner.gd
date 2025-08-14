@@ -18,18 +18,18 @@ func _ready() -> void:
 		add_child(rock_instance)
 		rock_instance.global_position = \
 		Vector2(randf_range(0.0, SCREEN_SIZE.x), \
-		randf_range(0.0, SCREEN_SIZE.y / 3))
+		randf_range(0.0, 213.3))
 
 	for i in range(GameManager.get_spawn_count()):
 		var scissors_instance = SCISSORS_SCENE.instantiate()
 		add_child(scissors_instance)
 		scissors_instance.global_position = \
-		Vector2(randf_range(0.0, SCREEN_SIZE.x), \
-		randf_range(SCREEN_SIZE.y / 3, SCREEN_SIZE.y / 3 * 2))
+		Vector2(randf_range(0.0, SCREEN_SIZE.x / 2), \
+		randf_range(213.3, SCREEN_SIZE.y))
 
 	for i in range(GameManager.get_spawn_count()):
 		var paper_instance = PAPER_SCENE.instantiate()
 		add_child(paper_instance)
 		paper_instance.global_position = \
-		Vector2(randf_range(0.0, SCREEN_SIZE.x), \
-		randf_range(SCREEN_SIZE.y / 3 * 2, SCREEN_SIZE.y))
+		Vector2(randf_range(SCREEN_SIZE.x / 2, SCREEN_SIZE.x), \
+		randf_range(213.3, SCREEN_SIZE.y))
